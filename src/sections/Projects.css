@@ -1,0 +1,120 @@
+.projects {
+  padding: var(--section-padding);
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.projects-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.projects-header {
+  margin-bottom: 4rem;
+}
+
+.projects-filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+
+.projects-filters.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.filter-button {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-transform: capitalize;
+}
+
+.filter-button:hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.filter-button.active {
+  background: var(--accent);
+  color: var(--bg-primary);
+  border-color: var(--accent);
+}
+
+.filter-button.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
+}
+
+.projects-grid.animate {
+  opacity: 1;
+}
+
+.no-projects {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+/* Masonry-style layout for larger screens */
+@media (min-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .project-card:nth-child(3n + 1) {
+    grid-row: span 1;
+  }
+
+  .project-card:nth-child(3n + 2) {
+    grid-row: span 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .projects-filters {
+    gap: 0.75rem;
+  }
+
+  .filter-button {
+    font-size: 0.75rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-filters {
+    justify-content: center;
+  }
+
+  .filter-button {
+    flex: 1;
+    min-width: 120px;
+  }
+}
