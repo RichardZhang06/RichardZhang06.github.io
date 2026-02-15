@@ -24,71 +24,65 @@ const Projects = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Sample projects data
+  // Projects from resume
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      category: 'Web App',
-      description: 'A full-featured e-commerce platform with real-time inventory, payment processing, and admin dashboard.',
-      tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      year: '2024',
-      role: 'Full Stack Developer',
+      title: 'AI-Powered Home Search Platform',
+      category: 'AI/Web',
+      description: 'Built an AI-powered home search app enabling listing inquiries, showing scheduling, and price analysis with instant client responses. Deployed on Microsoft Azure with secure OAuth2 authentication.',
+      tech: ['Python', 'OpenAI', 'PostgreSQL', 'Azure', 'FastAPI', 'OAuth2'],
+      year: '2025',
+      role: 'AI Software Engineer',
+      company: 'Every Prosperity Properties',
       color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com'
+      liveUrl: '#',
+      githubUrl: '#'
     },
     {
-      title: 'AI Chat Assistant',
-      category: 'AI/ML',
-      description: 'Intelligent chatbot using natural language processing to provide customer support and automated responses.',
-      tech: ['Python', 'TensorFlow', 'React', 'FastAPI'],
-      year: '2024',
-      role: 'ML Engineer',
+      title: 'AI Humanoid Character Animation',
+      category: 'AI/RL',
+      description: 'Developed physically simulated humanoid characters for video games using reinforcement learning (PPO). Trained agents for stable bipedal walking and recovery from perturbations.',
+      tech: ['Genesis AI', 'PyTorch', 'CUDA', 'NumPy', 'Python'],
+      year: '2025',
+      role: 'Software Engineer',
+      company: 'Lightspeed LA',
       color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com'
+      liveUrl: '#',
+      githubUrl: '#'
     },
     {
-      title: 'Task Management Tool',
-      category: 'Productivity',
-      description: 'Collaborative project management tool with real-time updates, kanban boards, and team analytics.',
-      tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma'],
-      year: '2023',
-      role: 'Lead Developer',
-      color: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com'
-    },
-    {
-      title: 'Portfolio CMS',
-      category: 'CMS',
-      description: 'Headless CMS for creative professionals to showcase their work with customizable templates.',
-      tech: ['Vue.js', 'GraphQL', 'Strapi', 'AWS'],
-      year: '2023',
-      role: 'Frontend Lead',
-      color: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-      liveUrl: 'https://example.com'
-    },
-    {
-      title: 'Fitness Tracker',
-      category: 'Mobile',
-      description: 'Cross-platform mobile app for tracking workouts, nutrition, and health metrics with social features.',
-      tech: ['React Native', 'Firebase', 'Redux', 'Chart.js'],
-      year: '2023',
-      role: 'Mobile Developer',
-      color: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com'
-    },
-    {
-      title: 'Real Estate Dashboard',
-      category: 'Dashboard',
-      description: 'Analytics dashboard for real estate agents with property listings, market trends, and client management.',
-      tech: ['React', 'D3.js', 'Express', 'MySQL'],
-      year: '2022',
+      title: 'Presenter.AI',
+      category: 'Hackathon',
+      description: 'Real-time web application providing AI-powered live feedback on public speaking - analyzing speech clarity, pacing, and filler words using OpenAI\'s ChatGPT API.',
+      tech: ['React', 'Node.js', 'Express', 'Socket.IO', 'OpenAI API', 'WebSockets'],
+      year: '2024',
       role: 'Full Stack Developer',
-      color: 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
-      liveUrl: 'https://example.com'
+      color: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+      liveUrl: '#',
+      githubUrl: '#'
+    },
+    {
+      title: 'Reading Time Estimator',
+      category: 'ML/Extension',
+      description: 'Chrome extension using machine learning to analyze reading patterns and estimate article reading times. Features Python backend API on AWS EC2 with real-time content analysis.',
+      tech: ['Python', 'scikit-learn', 'JavaScript', 'AWS EC2', 'Flask'],
+      year: '2024',
+      role: 'Developer',
+      color: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+      liveUrl: '#',
+      githubUrl: '#'
+    },
+    {
+      title: 'Autonomous Race Car Navigation',
+      category: 'Robotics',
+      description: 'Leading autonomous navigation development for Formula SAE electric race car. Developed AI-driven raceline generation using SVMs for optimal lap performance.',
+      tech: ['C++', 'Python', 'ROS2', 'scikit-learn', 'OpenCV', 'Eigen'],
+      year: '2024',
+      role: 'Path Planning Captain',
+      company: 'CMU Racing Driverless',
+      color: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+      liveUrl: '#',
+      githubUrl: '#'
     }
   ];
 

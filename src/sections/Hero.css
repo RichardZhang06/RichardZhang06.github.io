@@ -170,14 +170,6 @@
   transform: translateX(5px);
 }
 
-.hero-stats {
-  display: flex;
-  gap: 3rem;
-  align-items: center;
-  flex-wrap: wrap;
-  animation: fadeInUp 0.8s ease-out 1.2s backwards;
-}
-
 .stat {
   display: flex;
   flex-direction: column;

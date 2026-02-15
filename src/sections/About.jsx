@@ -23,10 +23,11 @@ const About = () => {
   }, []);
 
   const skills = [
-    { category: 'Frontend', items: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Vue.js'] },
-    { category: 'Backend', items: ['Node.js', 'Python', 'PostgreSQL', 'MongoDB', 'Express'] },
-    { category: 'Tools', items: ['Git', 'Docker', 'AWS', 'Figma', 'VS Code'] },
-    { category: 'Soft Skills', items: ['Problem Solving', 'Team Leadership', 'Agile', 'Communication'] }
+    { category: 'Languages', items: ['Python', 'C++', 'JavaScript', 'HTML/CSS'] },
+    { category: 'Frameworks & Tools', items: ['React', 'Node.js', 'Express', 'FastAPI', 'Flask', 'Socket.IO'] },
+    { category: 'AI & ML', items: ['PyTorch', 'OpenAI API', 'scikit-learn', 'Genesis AI', 'Reinforcement Learning'] },
+    { category: 'Cloud & Databases', items: ['Microsoft Azure', 'AWS EC2', 'PostgreSQL', 'REST APIs'] },
+    { category: 'Other', items: ['Git', 'Linux', 'ROS2', 'OpenCV', 'OAuth2', 'WebSockets'] }
   ];
 
   return (
@@ -47,26 +48,28 @@ const About = () => {
         <div className="about-content">
           <div className={`about-text ${isVisible ? 'animate' : ''}`}>
             <p className="about-paragraph">
-              I'm a passionate full-stack developer with a keen eye for design and a love for creating 
-              seamless digital experiences. With over 5 years of experience in web development, I've had 
-              the pleasure of working with startups and established companies alike.
+              I'm a Computer Science student at Carnegie Mellon University with a concentration in Machine Learning. 
+              Currently working as an AI Software Engineer at Every Prosperity Properties, where I build intelligent systems 
+              that leverage AI to solve real-world problems in the real estate industry.
             </p>
             <p className="about-paragraph">
-              My approach combines technical expertise with creative problem-solving. I believe that great 
-              software is not just functional—it's intuitive, beautiful, and makes people's lives easier.
+              My experience spans from developing physically simulated humanoid characters using reinforcement learning 
+              at Lightspeed LA, to building full-stack web applications with real-time AI feedback. I'm passionate about 
+              autonomous systems, having served as Path Planning Captain for Carnegie Mellon Racing Driverless.
             </p>
             <p className="about-paragraph">
-              When I'm not coding, you'll find me exploring new technologies, contributing to open-source 
-              projects, or enjoying a good cup of coffee while sketching out my next big idea.
+              I thrive at the intersection of artificial intelligence and practical software engineering, creating solutions 
+              that are both technically sophisticated and genuinely useful. Whether it's training RL agents for game 
+              characters or building AI-powered property search tools, I focus on making technology work for people.
             </p>
 
             <div className="about-highlight">
-              <div className="highlight-icon">💡</div>
+              <div className="highlight-icon">🎓</div>
               <div className="highlight-content">
-                <h3 className="highlight-title">My Philosophy</h3>
+                <h3 className="highlight-title">Education</h3>
                 <p className="highlight-text">
-                  "Code is poetry written in logic. Every line should be intentional, every function should 
-                  tell a story, and every project should leave a positive impact."
+                  <strong>Carnegie Mellon University</strong> - B.S. in Computer Science (Machine Learning Concentration)<br />
+                  GPA: 3.67 | Expected Graduation: June 2027
                 </p>
               </div>
             </div>

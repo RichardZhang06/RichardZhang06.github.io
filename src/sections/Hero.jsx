@@ -32,7 +32,7 @@ const Hero = () => {
         <div className="hero-content">
           <div className="hero-label">
             <span className="label-line"></span>
-            <span className="label-text">DEVELOPER & DESIGNER</span>
+            <span className="label-text">AI & SOFTWARE ENGINEER</span>
           </div>
 
           <h1 className="hero-title">
@@ -42,8 +42,8 @@ const Hero = () => {
           </h1>
 
           <p className="hero-description">
-            I craft digital experiences that blend creativity with code.
-            Specializing in full-stack development and modern web technologies.
+            Computer Science student at Carnegie Mellon University specializing in machine learning, 
+            full-stack development, and autonomous systems. Building intelligent solutions that bridge AI and real-world applications.
           </p>
 
           <div className="hero-cta">
@@ -54,23 +54,6 @@ const Hero = () => {
             <a href="#contact" className="cta-button secondary">
               Get In Touch
             </a>
-          </div>
-
-          <div className="hero-stats">
-            <div className="stat">
-              <div className="stat-number">5+</div>
-              <div className="stat-label">Years Experience</div>
-            </div>
-            <div className="stat-divider"></div>
-            <div className="stat">
-              <div className="stat-number">50+</div>
-              <div className="stat-label">Projects Completed</div>
-            </div>
-            <div className="stat-divider"></div>
-            <div className="stat">
-              <div className="stat-number">100%</div>
-              <div className="stat-label">Client Satisfaction</div>
-            </div>
           </div>
         </div>
 

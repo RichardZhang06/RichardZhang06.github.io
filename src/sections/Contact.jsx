@@ -43,10 +43,10 @@ const Contact = () => {
   };
 
   const socialLinks = [
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/richard-zhang06/', icon: '💼' },
     { name: 'GitHub', url: 'https://github.com', icon: '💻' },
-    { name: 'LinkedIn', url: 'https://linkedin.com', icon: '💼' },
-    { name: 'Twitter', url: 'https://twitter.com', icon: '🐦' },
-    { name: 'Email', url: 'mailto:hello@example.com', icon: '✉️' }
+    { name: 'Email', url: 'mailto:richardzhang217@gmail.com', icon: '✉️' },
+    { name: 'Phone', url: 'tel:571-363-5382', icon: '📞' }
   ];
 
   return (
@@ -67,8 +67,8 @@ const Contact = () => {
         <div className="contact-content">
           <div className={`contact-info ${isVisible ? 'animate' : ''}`}>
             <p className="contact-description">
-              Whether you have a project in mind, want to collaborate, or just want to say hi, 
-              I'd love to hear from you. Drop me a message and I'll get back to you as soon as possible!
+              I'm currently seeking internship and full-time opportunities in software engineering, AI/ML, 
+              and autonomous systems. Let's connect if you have an exciting opportunity or just want to chat about tech!
             </p>
 
             <div className="contact-details">
@@ -76,7 +76,7 @@ const Contact = () => {
                 <div className="detail-icon">📍</div>
                 <div className="detail-content">
                   <h3 className="detail-title">Location</h3>
-                  <p className="detail-text">San Francisco, CA</p>
+                  <p className="detail-text">Pittsburgh, PA</p>
                 </div>
               </div>
 
@@ -84,17 +84,19 @@ const Contact = () => {
                 <div className="detail-icon">📧</div>
                 <div className="detail-content">
                   <h3 className="detail-title">Email</h3>
-                  <a href="mailto:hello@richardzhang.dev" className="detail-link">
-                    hello@richardzhang.dev
+                  <a href="mailto:richardzhang217@gmail.com" className="detail-link">
+                    richardzhang217@gmail.com
                   </a>
                 </div>
               </div>
 
               <div className="detail-item">
-                <div className="detail-icon">⏰</div>
+                <div className="detail-icon">📱</div>
                 <div className="detail-content">
-                  <h3 className="detail-title">Availability</h3>
-                  <p className="detail-text">Open for opportunities</p>
+                  <h3 className="detail-title">Phone</h3>
+                  <a href="tel:571-363-5382" className="detail-link">
+                    571-363-5382
+                  </a>
                 </div>
               </div>
             </div>

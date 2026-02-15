@@ -51,6 +51,12 @@ const ProjectCard = ({ project, index }) => {
             <span className="meta-icon">📅</span>
             {project.year}
           </span>
+          {project.company && (
+            <span className="meta-item">
+              <span className="meta-icon">🏢</span>
+              {project.company}
+            </span>
+          )}
           {project.role && (
             <span className="meta-item">
               <span className="meta-icon">👤</span>
