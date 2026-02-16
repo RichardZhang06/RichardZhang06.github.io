@@ -44,7 +44,7 @@ const Contact = () => {
 
   const socialLinks = [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/richard-zhang06/', icon: '💼' },
-    { name: 'GitHub', url: 'https://github.com', icon: '💻' },
+    { name: 'GitHub', url: 'https://github.com/RichardZhang06', icon: '💻' },
     { name: 'Email', url: 'mailto:richardzhang217@gmail.com', icon: '✉️' },
     { name: 'Phone', url: 'tel:571-363-5382', icon: '📞' }
   ];
