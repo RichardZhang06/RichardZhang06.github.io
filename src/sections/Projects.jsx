@@ -32,7 +32,7 @@ const Projects = () => {
       tech: ['Python', 'OpenAI', 'PostgreSQL', 'Azure', 'FastAPI', 'OAuth2'],
       year: '2025',
       role: 'AI Software Engineer',
-      company: 'Every Prosperity Properties',
+      company: 'Ever Prosperity Properties',
       color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       liveUrl: '#',
       githubUrl: 'https://github.com/RichardZhang06/House-Searching-Agent.git'

@@ -42,7 +42,7 @@ const Hero = () => {
           </h1>
 
           <p className="hero-description">
-            Computer Science student at Carnegie Mellon University specializing in machine learning, 
+            Computer Science student at Carnegie Mellon University specializing in machine learning, robotics,  
             full-stack development, and autonomous systems. Building intelligent solutions that bridge AI and real-world applications.
           </p>
 

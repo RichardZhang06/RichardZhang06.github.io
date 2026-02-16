@@ -49,7 +49,7 @@ const About = () => {
           <div className={`about-text ${isVisible ? 'animate' : ''}`}>
             <p className="about-paragraph">
               I'm a Computer Science student at Carnegie Mellon University with a concentration in Machine Learning. 
-              Currently working as an AI Software Engineer at Every Prosperity Properties, where I build intelligent systems 
+              Currently working as an AI Software Engineer at Ever Prosperity Properties, where I build intelligent systems 
               that leverage AI to solve real-world problems in the real estate industry.
             </p>
             <p className="about-paragraph">

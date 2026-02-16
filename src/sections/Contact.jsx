@@ -67,7 +67,7 @@ const Contact = () => {
         <div className="contact-content">
           <div className={`contact-info ${isVisible ? 'animate' : ''}`}>
             <p className="contact-description">
-              I'm currently seeking internship and full-time opportunities in software engineering, AI/ML, 
+              I'm currently seeking internship and full-time opportunities in software engineering, robotics, AI/ML, 
               and autonomous systems. Let's connect if you have an exciting opportunity or just want to chat about tech!
             </p>
 
