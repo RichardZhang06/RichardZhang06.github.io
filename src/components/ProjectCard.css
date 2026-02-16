@@ -222,4 +222,41 @@
     width: 100%;
     text-align: center;
   }
+
+  .project-meta {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .meta-item {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-content {
+    padding: 1.25rem;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+  }
+
+  .project-category {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+  }
+
+  .tech-tag {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .project-number {
+    font-size: 2.5rem;
+  }
 }

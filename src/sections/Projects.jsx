@@ -5,6 +5,7 @@ import './Projects.css';
 const Projects = () => {
   const [filter, setFilter] = useState('all');
   const [isVisible, setIsVisible] = useState(false);
+  const [showAll, setShowAll] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -175,6 +176,16 @@ const Projects = () => {
     ? projects 
     : projects.filter(p => p.category === filter);
 
+ // Limit to 3 projects initially
+  const INITIAL_DISPLAY_COUNT = 3;
+  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, INITIAL_DISPLAY_COUNT);
+  const hasMore = filteredProjects.length > INITIAL_DISPLAY_COUNT;
+
+  // Reset showAll when filter changes
+  useEffect(() => {
+    setShowAll(false);
+  }, [filter]);
+
   return (
     <section id="projects" className="projects" ref={sectionRef}>
       <div className="projects-container">
@@ -203,10 +214,21 @@ const Projects = () => {
         </div>
 
         <div className={`projects-grid ${isVisible ? 'animate' : ''}`}>
-          {filteredProjects.map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}
         </div>
+
+        {hasMore && (
+          <div className="show-more-container">
+            <button 
+              onClick={() => setShowAll(!showAll)} 
+              className="show-more-button"
+            >
+              {showAll ? '← Show Less' : `Show All ${filteredProjects.length} Projects →`}
+            </button>
+          </div>
+        )}
 
         {filteredProjects.length === 0 && (
           <div className="no-projects">
