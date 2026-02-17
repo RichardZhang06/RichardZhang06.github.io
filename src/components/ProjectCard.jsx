@@ -10,6 +10,14 @@ const ProjectCard = ({ project, index }) => {
         </div>
         <div className="project-overlay">
           <div className="overlay-content">
+            {project.demoUrl && (
+              <a 
+                href={project.demoUrl} 
+                className="overlay-link"
+              >
+                View Demo →
+              </a>
+            )}
             {project.githubUrl && (
               <a 
                 href={project.githubUrl} 
@@ -19,6 +27,11 @@ const ProjectCard = ({ project, index }) => {
               >
                 View on GitHub →
               </a>
+            )}
+            {!project.demoUrl && !project.githubUrl && (
+              <div className="overlay-link disabled">
+                Private Project
+              </div>
             )}
           </div>
         </div>

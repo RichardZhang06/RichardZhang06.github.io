@@ -13,16 +13,15 @@ const Projects = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.05, rootMargin: '50px' }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
+    const currentRef = sectionRef.current;
+    if (currentRef) observer.observe(currentRef);
+    return () => { if (currentRef) observer.unobserve(currentRef); };
   }, []);
 
   const projects = [
@@ -33,9 +32,22 @@ const Projects = () => {
       tech: ['Python', 'OpenAI', 'PostgreSQL', 'Azure', 'FastAPI', 'OAuth2'],
       year: '2025',
       role: 'AI Software Engineer',
-      company: 'Ever Prosperity Properties',
+      company: 'Every Prosperity Properties',
       color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      githubUrl: 'https://github.com/RichardZhang06/House-Searching-Agent.git'
+      githubUrl: 'https://github.com/RichardZhang06/House-Searching-Agent.git',
+      demoUrl: '/demos/home-search'
+    },
+    {
+      title: 'IRL Studio - Robotic Guitar Beat Performer',
+      category: 'Hackathon',
+      description: 'Designed and built a hybrid hardware-software system that transforms digital beat compositions into real-time physical guitar performances. Engineered real-time scheduling (<10ms latency), MOSFET driver circuits, dual-rail power architecture, and a React + FastAPI step-sequencer UI.',
+      tech: ['Teensy 4.1', 'Embedded C/C++', 'React', 'FastAPI', 'WebSockets', 'MOSFET Drivers', 'Servos', 'Solenoids'],
+      year: '2025',
+      role: 'Embedded Systems & Software Engineer',
+      company: 'Build18 - CMU Hardware Hackathon',
+      color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+      githubUrl: 'https://github.com/RichardZhang06/IRL-FL-Studio.git',
+      demoUrl: '/demos/irl-studio'
     },
     {
       title: 'AI Humanoid Character Animation',
@@ -45,18 +57,20 @@ const Projects = () => {
       year: '2025',
       role: 'Software Engineer',
       company: 'Lightspeed LA',
-      color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      githubUrl: 'https://github.com/gerrysonx/ASE2Genesis.git'
+      color: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+      githubUrl: 'https://github.com/gerrysonx/ASE2Genesis.git',
+      demoUrl: '/demos/humanoid-animation'
     },
     {
       title: 'Presenter.AI',
       category: 'Hackathon',
-      description: 'Real-time web application providing AI-powered live feedback on public speaking - analyzing speech clarity, pacing, and filler words using OpenAI\'s ChatGPT API.',
+      description: 'Real-time web application providing AI-powered live feedback on public speaking — analyzing speech clarity, pacing, and filler words using OpenAI\'s ChatGPT API.',
       tech: ['React', 'Node.js', 'Express', 'Socket.IO', 'OpenAI API', 'WebSockets'],
       year: '2024',
       role: 'Full Stack Developer',
-      color: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      githubUrl: 'https://github.com/RichardZhang06/Presenter.AI.git'
+      color: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+      githubUrl: 'https://github.com/RichardZhang06/Presenter.AI.git',
+      demoUrl: '/demos/presenter-ai'
     },
     {
       title: 'Reading Time Estimator',
@@ -65,8 +79,9 @@ const Projects = () => {
       tech: ['Python', 'scikit-learn', 'JavaScript', 'AWS EC2', 'Flask'],
       year: '2024',
       role: 'Developer',
-      color: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-      githubUrl: 'https://github.com/RichardZhang06/Chrome-Extension-1.5.git'
+      color: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+      githubUrl: 'https://github.com/RichardZhang06/Chrome-Extension-1.5.git',
+      demoUrl: null
     },
     {
       title: 'Autonomous Race Car Navigation',
@@ -76,100 +91,94 @@ const Projects = () => {
       year: '2024',
       role: 'Path Planning Captain',
       company: 'CMU Racing Driverless',
-      color: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-      githubUrl: 'https://github.com/RichardZhang06/Raceline-Test-Suite'
+      color: 'linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%)',
+      githubUrl: 'https://github.com/RichardZhang06/Raceline-Test-Suite',
+      demoUrl: '/demos/racing-nav'
     },
     {
       title: 'Optimizing Compiler (SSA-Based)',
       category: 'School Projects',
-      description: '15-411 Compiler Design - Built a full optimizing compiler in OCaml targeting x86-64. Implemented parsing, type checking, SSA transformation, liveness analysis, interference graph construction, SSA-based register allocation, and instruction selection. Designed optimization passes including constant folding, dead code elimination, and copy propagation.',
+      description: 'Built a full optimizing compiler in OCaml targeting x86-64. Implemented parsing, type checking, SSA transformation, liveness analysis, interference graph construction, register allocation, and optimization passes including constant folding, dead code elimination, and copy propagation.',
       tech: ['OCaml', 'x86-64 Assembly', 'SSA', 'Compiler Optimizations'],
       year: '2025',
       role: 'Compiler Engineering Student',
       company: 'CMU 15-411 Compiler Design',
-      color: 'linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%)',
-      githubUrl: 'https://github.com/15-411-s26/joseon.git'
+      color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      githubUrl: null,
+      demoUrl: '/demos/compiler'
     },
     {
       title: 'Dynamic Memory Allocator',
       category: 'School Projects',
-      description: 'MallocLab - Implemented a dynamic memory allocator in C using an explicit free list with 16-byte alignment. Designed block headers/footers, coalescing logic, splitting strategies, and optimized throughput and memory utilization against a trace-driven driver.',
+      description: 'Implemented a dynamic memory allocator in C using an explicit free list with 16-byte alignment. Designed block headers/footers, coalescing logic, splitting strategies, and optimized throughput and memory utilization.',
       tech: ['C'],
       year: '2024',
       role: 'Computer Systems Student',
-      company: 'CMU 15-213 Introduction to Computer Systems',
+      company: 'CMU 15-213',
       color: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-      githubUrl: 'https://github.com/cmu15213s25/malloclab-s25-RichardZhang06.git'
+      githubUrl: null,
+      demoUrl: '/demos/malloc'
     },
     {
       title: 'Concurrent Web Proxy',
       category: 'School Projects',
-      description: 'ProxyLab - Built a concurrent HTTP proxy server in C supporting multiple clients via thread-based concurrency. Implemented robust I/O, request forwarding, caching with LRU eviction, and correct handling of HTTP/1.0 headers.',
+      description: 'Built a concurrent HTTP proxy server in C supporting multiple clients via thread-based concurrency. Implemented robust I/O, request forwarding, caching with LRU eviction, and correct handling of HTTP/1.0 headers.',
       tech: ['C', 'Sockets', 'Multithreading'],
       year: '2024',
       role: 'Computer Systems Student',
-      company: 'CMU 15-213 Introduction to Computer Systems',
+      company: 'CMU 15-213',
       color: 'linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%)',
-      githubUrl: 'https://github.com/cmu15213s25/proxylab-s25-RichardZhang06.git'
+      githubUrl: null,
+      demoUrl: '/demos/proxy'
     },
     {
       title: 'Simple File System',
       category: 'School Projects',
-      description: 'SFSLab - Developed a Unix-like file system in C with support for inodes, directory structures, block allocation, and pathname resolution. Implemented file creation, deletion, reading, writing, and consistency checks.',
+      description: 'Developed a Unix-like file system in C with support for inodes, directory structures, block allocation, and pathname resolution. Implemented file creation, deletion, reading, writing, and consistency checks.',
       tech: ['C', 'File Systems'],
       year: '2024',
       role: 'Computer Systems Student',
-      company: 'CMU 15-213 Introduction to Computer Systems',
+      company: 'CMU 15-213',
       color: 'linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%)',
-      githubUrl: 'https://github.com/cmu15213s25/sfslab-s25-RichardZhang06.git'
+      githubUrl: null,
+      demoUrl: '/demos/filesystem'
     },
     {
       title: 'Tiny Unix Shell',
       category: 'School Projects',
-      description: 'TSHLab - Implemented a Unix shell in C with job control, signal handling, and support for foreground/background processes. Managed process groups, handled SIGCHLD/SIGINT/SIGTSTP correctly, and prevented race conditions.',
+      description: 'Implemented a Unix shell in C with job control, signal handling, and support for foreground/background processes. Managed process groups and handled SIGCHLD/SIGINT/SIGTSTP correctly.',
       tech: ['C', 'Unix Signals', 'Process Control'],
       year: '2024',
       role: 'Computer Systems Student',
-      company: 'CMU 15-213 Introduction to Computer Systems',
+      company: 'CMU 15-213',
       color: 'linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%)',
-      githubUrl: 'https://github.com/cmu15213s25/tshlab-s25-RichardZhang06.git'
+      githubUrl: null,
+      demoUrl: '/demos/shell'
     },
     {
       title: 'Cache Simulator & Optimized Transpose',
       category: 'School Projects',
-      description: 'CacheLab - Built a cache simulator modeling set-associative caches with LRU replacement, then optimized matrix transpose implementations to minimize cache misses under strict memory constraints.',
+      description: 'Built a cache simulator modeling set-associative caches with LRU replacement, then optimized matrix transpose implementations to minimize cache misses under strict memory constraints.',
       tech: ['C', 'Computer Architecture'],
       year: '2024',
       role: 'Computer Systems Student',
-      company: 'CMU 15-213 Introduction to Computer Systems',
+      company: 'CMU 15-213',
       color: 'linear-gradient(135deg, #fddb92 0%, #d1fdff 100%)',
-      githubUrl: 'https://github.com/cmu15213s25/cachelab-s25-RichardZhang06.git'
-    },
-    {
-      title: 'IRL Studio - Robotic Guitar Beat Performer',
-      category: 'Hackathon',
-      description: 'Build18 Project - Designed and built a hybrid hardware-software system that transforms digital beat compositions into real-time physical guitar performances. Developed a React + FastAPI step-sequencer UI that sends timestamped note events to a Teensy 4.1 microcontroller, which schedules and actuates solenoids (fretting), servos (strumming), and LED strips for synchronized visual feedback. Engineered real-time scheduling (<10ms latency), MOSFET driver circuits with flyback protection, dual-rail power architecture (12V/5V), and safety systems including fusing and E-stop. Delivered a scalable 3-string x 6-fret robotic guitar prototype capable of two octaves of physical playback.',
-      tech: ['Teensy 4.1', 'Embedded C/C++', 'React', 'FastAPI', 'WebSockets', 'MOSFET Drivers', 'Servos', 'Solenoids', 'APA102 LEDs'],
-      year: '2025',
-      role: 'Embedded Systems & Software Engineer',
-      company: 'Build18 - CMU Hardware Hackathon',
-      color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      githubUrl: 'https://github.com/RichardZhang06/IRL-FL-Studio.git'
+      githubUrl: null,
+      demoUrl: '/demos/cache'
     }
   ];
 
   const categories = ['all', ...new Set(projects.map(p => p.category))];
 
-  const filteredProjects = filter === 'all' 
-    ? projects 
+  const filteredProjects = filter === 'all'
+    ? projects
     : projects.filter(p => p.category === filter);
 
- // Limit to 3 projects initially
   const INITIAL_DISPLAY_COUNT = 3;
   const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, INITIAL_DISPLAY_COUNT);
   const hasMore = filteredProjects.length > INITIAL_DISPLAY_COUNT;
 
-  // Reset showAll when filter changes
   useEffect(() => {
     setShowAll(false);
   }, [filter]);
@@ -209,8 +218,8 @@ const Projects = () => {
 
         {hasMore && (
           <div className="show-more-container">
-            <button 
-              onClick={() => setShowAll(!showAll)} 
+            <button
+              onClick={() => setShowAll(!showAll)}
               className="show-more-button"
             >
               {showAll ? '← Show Less' : `Show All ${filteredProjects.length} Projects →`}
