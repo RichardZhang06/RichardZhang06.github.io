@@ -84,6 +84,7 @@
   transition: all var(--transition);
   transform: translateY(20px);
   opacity: 0;
+  text-align: center;
 }
 
 .project-card:hover .overlay-link {
@@ -92,24 +93,9 @@
   transition-delay: 0.1s;
 }
 
-.project-card:hover .overlay-link:nth-child(2) {
-  transition-delay: 0.2s;
-}
-
 .overlay-link:hover {
   background: var(--text-primary);
-  transform: translateY(-2px);
-}
-
-.overlay-link.secondary {
-  background: transparent;
-  color: var(--text-primary);
-  border: 2px solid var(--text-primary);
-}
-
-.overlay-link.secondary:hover {
-  background: var(--text-primary);
-  color: var(--bg-primary);
+  transform: translateY(-2px) scale(1.05);
 }
 
 .project-content {

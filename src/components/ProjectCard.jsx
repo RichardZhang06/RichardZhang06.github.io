@@ -10,22 +10,14 @@ const ProjectCard = ({ project, index }) => {
         </div>
         <div className="project-overlay">
           <div className="overlay-content">
-            <a 
-              href={project.liveUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="overlay-link"
-            >
-              View Live →
-            </a>
             {project.githubUrl && (
               <a 
                 href={project.githubUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="overlay-link secondary"
+                className="overlay-link"
               >
-                GitHub
+                View on GitHub →
               </a>
             )}
           </div>

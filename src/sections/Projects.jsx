@@ -35,7 +35,6 @@ const Projects = () => {
       role: 'AI Software Engineer',
       company: 'Ever Prosperity Properties',
       color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      liveUrl: '#',
       githubUrl: 'https://github.com/RichardZhang06/House-Searching-Agent.git'
     },
     {
@@ -47,7 +46,6 @@ const Projects = () => {
       role: 'Software Engineer',
       company: 'Lightspeed LA',
       color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      liveUrl: '#',
       githubUrl: 'https://github.com/gerrysonx/ASE2Genesis.git'
     },
     {
@@ -58,7 +56,6 @@ const Projects = () => {
       year: '2024',
       role: 'Full Stack Developer',
       color: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      liveUrl: '#',
       githubUrl: 'https://github.com/RichardZhang06/Presenter.AI.git'
     },
     {
@@ -69,7 +66,6 @@ const Projects = () => {
       year: '2024',
       role: 'Developer',
       color: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-      liveUrl: '#',
       githubUrl: 'https://github.com/RichardZhang06/Chrome-Extension-1.5.git'
     },
     {
@@ -81,7 +77,6 @@ const Projects = () => {
       role: 'Path Planning Captain',
       company: 'CMU Racing Driverless',
       color: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-      liveUrl: '#',
       githubUrl: 'https://github.com/RichardZhang06/Raceline-Test-Suite'
     },
     {
@@ -93,8 +88,7 @@ const Projects = () => {
       role: 'Compiler Engineering Student',
       company: 'CMU 15-411 Compiler Design',
       color: 'linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%)',
-      liveUrl: '#',
-      githubUrl: '#'
+      githubUrl: 'https://github.com/15-411-s26/joseon.git'
     },
     {
       title: 'Dynamic Memory Allocator',
@@ -105,7 +99,6 @@ const Projects = () => {
       role: 'Computer Systems Student',
       company: 'CMU 15-213 Introduction to Computer Systems',
       color: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-      liveUrl: '#',
       githubUrl: 'https://github.com/cmu15213s25/malloclab-s25-RichardZhang06.git'
     },
     {
@@ -117,7 +110,6 @@ const Projects = () => {
       role: 'Computer Systems Student',
       company: 'CMU 15-213 Introduction to Computer Systems',
       color: 'linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%)',
-      liveUrl: '#',
       githubUrl: 'https://github.com/cmu15213s25/proxylab-s25-RichardZhang06.git'
     },
     {
@@ -129,7 +121,6 @@ const Projects = () => {
       role: 'Computer Systems Student',
       company: 'CMU 15-213 Introduction to Computer Systems',
       color: 'linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%)',
-      liveUrl: '#',
       githubUrl: 'https://github.com/cmu15213s25/sfslab-s25-RichardZhang06.git'
     },
     {
@@ -141,7 +132,6 @@ const Projects = () => {
       role: 'Computer Systems Student',
       company: 'CMU 15-213 Introduction to Computer Systems',
       color: 'linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%)',
-      liveUrl: '#',
       githubUrl: 'https://github.com/cmu15213s25/tshlab-s25-RichardZhang06.git'
     },
     {
@@ -153,7 +143,6 @@ const Projects = () => {
       role: 'Computer Systems Student',
       company: 'CMU 15-213 Introduction to Computer Systems',
       color: 'linear-gradient(135deg, #fddb92 0%, #d1fdff 100%)',
-      liveUrl: '#',
       githubUrl: 'https://github.com/cmu15213s25/cachelab-s25-RichardZhang06.git'
     },
     {
@@ -165,7 +154,6 @@ const Projects = () => {
       role: 'Embedded Systems & Software Engineer',
       company: 'Build18 - CMU Hardware Hackathon',
       color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      liveUrl: '#',
       githubUrl: 'https://github.com/RichardZhang06/IRL-FL-Studio.git'
     }
   ];
