@@ -7,7 +7,7 @@ const DemoPage = () => {
   const demos = {
     'home-search': {
       title: 'AI-Powered Home Search Platform',
-      company: 'Every Prosperity Properties',
+      company: 'Ever Prosperity Properties',
       year: '2025',
       description: 'An AI-powered home search app enabling natural language listing inquiries, automated showing scheduling, and real-time price analysis with instant client responses.',
       videoUrl: null, // Replace with: 'https://www.youtube.com/embed/YOUR_ID'

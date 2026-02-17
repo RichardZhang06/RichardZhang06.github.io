@@ -32,7 +32,7 @@ const Projects = () => {
       tech: ['Python', 'OpenAI', 'PostgreSQL', 'Azure', 'FastAPI', 'OAuth2'],
       year: '2025',
       role: 'AI Software Engineer',
-      company: 'Every Prosperity Properties',
+      company: 'Ever Prosperity Properties',
       color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       githubUrl: 'https://github.com/RichardZhang06/House-Searching-Agent.git',
       demoUrl: '/demos/home-search'
@@ -104,7 +104,7 @@ const Projects = () => {
       role: 'Compiler Engineering Student',
       company: 'CMU 15-411 Compiler Design',
       color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      githubUrl: null,
+      githubUrl: 'https://github.com/15-411-s26/joseon.git',
       demoUrl: '/demos/compiler'
     },
     {
@@ -116,7 +116,7 @@ const Projects = () => {
       role: 'Computer Systems Student',
       company: 'CMU 15-213',
       color: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-      githubUrl: null,
+      githubUrl: 'https://github.com/cmu15213s25/malloclab-s25-RichardZhang06.git',
       demoUrl: '/demos/malloc'
     },
     {
@@ -128,7 +128,7 @@ const Projects = () => {
       role: 'Computer Systems Student',
       company: 'CMU 15-213',
       color: 'linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%)',
-      githubUrl: null,
+      githubUrl: 'https://github.com/cmu15213s25/proxylab-s25-RichardZhang06.git',
       demoUrl: '/demos/proxy'
     },
     {
@@ -140,7 +140,7 @@ const Projects = () => {
       role: 'Computer Systems Student',
       company: 'CMU 15-213',
       color: 'linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%)',
-      githubUrl: null,
+      githubUrl: 'https://github.com/cmu15213s25/sfslab-s25-RichardZhang06.git',
       demoUrl: '/demos/filesystem'
     },
     {
@@ -152,7 +152,7 @@ const Projects = () => {
       role: 'Computer Systems Student',
       company: 'CMU 15-213',
       color: 'linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%)',
-      githubUrl: null,
+      githubUrl: 'https://github.com/cmu15213s25/tshlab-s25-RichardZhang06.git',
       demoUrl: '/demos/shell'
     },
     {
@@ -164,7 +164,7 @@ const Projects = () => {
       role: 'Computer Systems Student',
       company: 'CMU 15-213',
       color: 'linear-gradient(135deg, #fddb92 0%, #d1fdff 100%)',
-      githubUrl: null,
+      githubUrl: 'https://github.com/cmu15213s25/cachelab-s25-RichardZhang06.git',
       demoUrl: '/demos/cache'
     }
   ];
