@@ -87,99 +87,266 @@ const DemoPage = () => {
       screenshots: []
     },
     'compiler': {
-      title: 'Optimizing Compiler (SSA-Based)',
+      title: 'C0 Compiler (OCaml to x86-64)',
       company: 'CMU 15-411 Compiler Design',
-      year: '2025',
-      description: 'A full optimizing compiler written in OCaml targeting x86-64 assembly, built from scratch for the 15-411 Compiler Design course.',
+      year: '2026',
+      description: 'A compiler in OCaml that translates a subset of C0 to x86-64 assembly, built with a partner for 15-411. It is a work in progress and currently covers the first lab.',
       features: [
-        'Full frontend: lexing, parsing, and type checking',
-        'SSA (Static Single Assignment) form transformation',
-        'Liveness analysis and interference graph construction',
-        'SSA-based register allocation targeting x86-64',
-        'Optimization passes: constant folding, dead code elimination, copy propagation',
-        'Instruction selection and final assembly code generation'
+        'Lexer and parser for a subset of C0, plus a type checker',
+        'Translation to a tree-based intermediate representation',
+        'Constant folding that preserves division and modulus by zero errors',
+        'Backwards liveness analysis over three-address assembly',
+        'Interference graph with maximum cardinality search ordering, greedy coloring, and spilling to stack slots',
+        'x86-64 instruction selection and assembly generation from the allocation map'
       ],
-      techStack: ['OCaml', 'x86-64 Assembly', 'SSA Form', 'Register Allocation', 'Compiler Optimizations'],
+      techStack: ['OCaml', 'x86-64 Assembly', 'Register Allocation', 'Liveness Analysis'],
       screenshots: []
     },
     'malloc': {
       title: 'Dynamic Memory Allocator',
       company: 'CMU 15-213 Introduction to Computer Systems',
-      year: '2024',
-      description: 'A high-performance dynamic memory allocator in C implementing malloc, free, realloc, and calloc using an explicit free list with 16-byte alignment.',
+      year: '2025',
+      description: 'A 64-bit dynamic memory allocator in C implementing malloc, free, realloc, and calloc with segregated free lists and mini blocks, evaluated against trace-driven throughput and utilization benchmarks.',
       features: [
-        'Explicit free list with LIFO insertion policy',
-        '16-byte aligned block headers and footers',
-        'Immediate coalescing of adjacent free blocks',
-        'Block splitting to minimize internal fragmentation',
-        'First-fit search strategy for free block selection',
-        'Optimized throughput and utilization against trace-driven benchmarks'
+        'Segregated free lists, with free blocks inserted at the head of their size-class list',
+        'Mini blocks (header plus a single next pointer) for the smallest allocations',
+        'No footers on allocated blocks, using header flags to track the previous block',
+        'First-fit search that then examines up to three more candidates for a better fit',
+        'Coalescing of adjacent free blocks and block splitting to limit fragmentation',
+        'Heap consistency checker (mm_checkheap) for validating the heap invariants'
       ],
-      techStack: ['C', 'Memory Management', 'Heap Internals', 'GDB'],
+      techStack: ['C', 'Segregated Free Lists', 'Memory Management', 'GDB'],
       screenshots: []
     },
     'proxy': {
       title: 'Concurrent Web Proxy',
       company: 'CMU 15-213 Introduction to Computer Systems',
-      year: '2024',
-      description: 'A concurrent HTTP/1.0 proxy server in C supporting multiple simultaneous clients via POSIX threads, with an LRU cache for repeated requests.',
+      year: '2025',
+      description: 'A concurrent HTTP/1.0 proxy server in C that serves multiple simultaneous clients using POSIX threads.',
       features: [
-        'Thread-based concurrency supporting simultaneous client connections',
-        'Robust I/O with partial read/write handling',
-        'HTTP/1.0 request parsing and header forwarding',
-        'LRU eviction cache for repeated object requests',
-        'Thread-safe cache with reader-writer synchronization',
-        'Correct handling of SIGPIPE and network error edge cases'
+        'Thread-per-connection concurrency using detached POSIX threads',
+        'HTTP/1.0 GET request parsing and URI handling',
+        'Request rewriting: forwards a clean HTTP/1.0 request line and Host header, and sets Connection: close',
+        'Relays server responses back to the client',
+        'Error responses for malformed or unsupported requests',
+        'Ignores SIGPIPE so a closed client socket does not crash the proxy'
       ],
-      techStack: ['C', 'POSIX Sockets', 'Multithreading', 'HTTP/1.0', 'LRU Cache'],
+      techStack: ['C', 'Sockets', 'Multithreading', 'HTTP/1.0'],
       screenshots: []
     },
     'filesystem': {
       title: 'Simple File System',
       company: 'CMU 15-213 Introduction to Computer Systems',
-      year: '2024',
-      description: 'A Unix-like file system implemented in C, supporting inodes, directory structures, block allocation, and full pathname resolution.',
+      year: '2025',
+      description: 'A thread-safe, FAT-style file system in C built on a memory-mapped disk of 512-byte blocks, with a lock hierarchy to prevent deadlocks.',
       features: [
-        'Inode-based file metadata and data block management',
-        'Hierarchical directory structures with linked entries',
-        'Block allocation and bitmap-based free block tracking',
-        'Pathname resolution including relative and absolute paths',
-        'File creation, deletion, reading, writing, and stat operations',
-        'Consistency checks and recovery mechanisms'
+        'FAT-style layout: 512-byte blocks linked together, with a free list for allocation',
+        'Single root directory stored in the superblock',
+        'Two-level open-file tracking (per-descriptor position, plus per-file size and reference count)',
+        'open, close, read, write, seek, getpos, remove, rename, and list operations',
+        'Thread safety with a documented lock hierarchy: filesystem mutex, free list mutex, per-file reader-writer lock, per-descriptor mutex',
+        'Tested with the course trace files and a file system consistency checker'
       ],
-      techStack: ['C', 'File Systems', 'Inode Structures', 'Block Allocation'],
+      techStack: ['C', 'File Systems', 'Pthreads', 'Concurrency'],
       screenshots: []
     },
     'shell': {
       title: 'Tiny Unix Shell',
       company: 'CMU 15-213 Introduction to Computer Systems',
-      year: '2024',
-      description: 'A functional Unix shell in C with job control, signal handling, and support for both foreground and background process management.',
+      year: '2025',
+      description: 'A Unix shell in C with job control, signal handling, and I/O redirection.',
       features: [
         'Foreground and background process execution',
-        'Job control: jobs, bg, fg, and kill built-ins',
-        'Correct SIGCHLD, SIGINT, and SIGTSTP signal handling',
-        'Process group management to prevent orphaned processes',
-        'Race condition prevention using signal blocking',
-        'I/O redirection and pipeline support'
+        'Job control built-ins: jobs, bg, and fg',
+        'SIGCHLD, SIGINT, and SIGTSTP handlers that reap, terminate, and stop jobs correctly',
+        'Process groups so signals reach the right job',
+        'Race condition prevention by blocking signals around shared job list updates',
+        'Input and output redirection for external commands and built-ins'
       ],
-      techStack: ['C', 'Unix Signals', 'Process Control', 'Job Control', 'POSIX'],
+      techStack: ['C', 'Unix Signals', 'Process Control', 'I/O Redirection'],
       screenshots: []
     },
     'cache': {
       title: 'Cache Simulator & Optimized Transpose',
       company: 'CMU 15-213 Introduction to Computer Systems',
-      year: '2024',
-      description: 'A two-part lab: a set-associative cache simulator with LRU replacement, and hand-optimized matrix transpose implementations to minimize cache misses.',
+      year: '2025',
+      description: 'A two-part lab: a set-associative cache simulator with LRU replacement, and cache-aware matrix transpose functions that minimize misses.',
       features: [
-        'Set-associative cache simulator with configurable s, E, b parameters',
-        'LRU replacement policy with full hit/miss/eviction tracking',
-        'Validated against reference traces using Valgrind',
-        'Blocking (tiling) technique for 32×32 and 64×64 matrix transposes',
-        'Cache-oblivious optimizations under strict memory constraints',
-        'Near-optimal miss rates within 12 transpose function calls'
+        'Cache simulator configurable by sets, lines per set, and block size (s, E, b)',
+        'LRU replacement using per-line timestamps',
+        'Tracks hits, misses, evictions, and dirty bytes for a write-back cache',
+        'Trace file parsing and a verbose mode that prints each cache operation',
+        'Blocked (tiled) transpose for square matrices with sizes divisible by 8',
+        'Fallback transpose for other matrix shapes using the provided temporary array'
       ],
       techStack: ['C', 'Computer Architecture', 'Cache Design', 'Performance Optimization'],
+      screenshots: []
+    },
+    'bomb-lab': {
+      title: 'Binary Bomb Lab',
+      company: 'CMU 15-213 Introduction to Computer Systems',
+      year: '2025',
+      description: 'A reverse engineering lab where I used GDB and disassembly to defuse a six-phase binary bomb.',
+      features: [
+        'Read x86-64 disassembly to infer what each phase validates',
+        'Single-stepped through the machine code in GDB with breakpoints before each phase and before the explosion routine',
+        'Worked out the expected input for each of the six phases from control flow and data structure layouts in memory',
+        'Avoided explosions by setting breakpoints and checking register and stack state before each check'
+      ],
+      techStack: ['x86-64 Assembly', 'GDB', 'Reverse Engineering', 'Disassembly'],
+      screenshots: []
+    },
+    'attack-lab': {
+      title: 'Buffer Overflow Attack Lab',
+      company: 'CMU 15-213 Introduction to Computer Systems',
+      year: '2025',
+      description: 'A security lab where I exploited buffer overflow vulnerabilities in x86-64 binaries using code injection and return-oriented programming.',
+      features: [
+        'Phases 1-3: code injection against a binary with an executable stack',
+        'Phases 4-5: return-oriented programming against a binary with non-executable stack and randomization defenses',
+        'Built exploit strings by hand from disassembly and stack layout analysis',
+        'Chained gadgets that load values into registers and compute stack-relative addresses',
+        'Debugged exploit payloads step by step in GDB'
+      ],
+      techStack: ['x86-64 Assembly', 'GDB', 'Buffer Overflows', 'Return-Oriented Programming'],
+      screenshots: []
+    },
+    'c0vm': {
+      title: 'C0 Virtual Machine',
+      company: 'CMU 15-122 Principles of Imperative Computation',
+      year: '2024',
+      description: 'A virtual machine in C that executes C0 bytecode, built for 15-122.',
+      features: [
+        'Stack-based interpreter loop for roughly 50 C0 bytecode instructions',
+        'Arithmetic and bitwise operations, local variable load/store, and conditional and unconditional jumps',
+        'Static function calls (invokestatic) and native library calls (invokenative)',
+        'Heap allocation for structs and arrays, with field and element address computation',
+        'Runtime error handling: assertion failures, array bounds, division by zero, and null pointer dereferences',
+        'Tagged pointer support for generic values'
+      ],
+      techStack: ['C', 'Virtual Machines', 'Bytecode', 'Stacks'],
+      screenshots: []
+    },
+    'huffman': {
+      title: 'Huffman Compression',
+      company: 'CMU 15-122 Principles of Imperative Computation',
+      year: '2024',
+      description: 'A file compression program in C based on Huffman coding.',
+      features: [
+        'Frequency tables built from input text',
+        'Huffman tree construction using a priority queue',
+        'Encoding and decoding text with the generated prefix codes',
+        'Bit packing to store codes compactly in compressed files',
+        'Contracts (preconditions and postconditions) checked in a safe build and removed in a fast build'
+      ],
+      techStack: ['C', 'Huffman Coding', 'Priority Queues', 'Bit Manipulation'],
+      screenshots: []
+    },
+    'editor': {
+      title: 'Gap Buffer Text Editor',
+      company: 'CMU 15-122 Principles of Imperative Computation',
+      year: '2024',
+      description: 'The data structures behind a text editor: gap buffers, doubly linked lists, and a text buffer, written in C0.',
+      features: [
+        'Gap buffers with O(1) insertion and deletion at the cursor',
+        'Doubly linked list with a point that moves left and right',
+        'Text buffer built as a list of 16-character gap buffers',
+        'Representation invariants (is_gapbuf, is_dll_pt, is_tbuf) for every data structure',
+        'Test suites that exercise each layer, plus the provided editor front end'
+      ],
+      techStack: ['C0', 'Data Structures', 'Doubly Linked Lists', 'Gap Buffers'],
+      screenshots: []
+    },
+    'peg-solitaire': {
+      title: 'Peg Solitaire Solver',
+      company: 'CMU 15-122 Principles of Imperative Computation',
+      year: '2024',
+      description: 'A peg solitaire solver using backtracking and a memoizing hash dictionary.',
+      features: [
+        'Move representation and generation for the board',
+        'Depth-first backtracking solver',
+        'Memoizing solver that stores visited positions in a hash dictionary',
+        'Boards compressed into two integers plus a peg count to save space',
+        'Benchmarked and profiled on the English and French boards'
+      ],
+      techStack: ['C1', 'Backtracking', 'Hash Tables', 'Memoization'],
+      screenshots: []
+    },
+    'images': {
+      title: 'Image Processing & Steganography',
+      company: 'CMU 15-122 Principles of Imperative Computation',
+      year: '2024',
+      description: 'Image manipulation and steganography programs written in C0.',
+      features: [
+        'Image helper functions built on a pixel interface',
+        'Cropping a region out of an image',
+        'Stretching and resizing images',
+        'Steganography: hiding and recovering a secret image in the least significant bits of a cover image',
+        'Bitwise operations on the alpha, red, green, and blue channels'
+      ],
+      techStack: ['C0', 'Images', 'Bit Manipulation', 'Steganography'],
+      screenshots: []
+    },
+    'clac': {
+      title: 'Clac Stack Interpreter',
+      company: 'CMU 15-122 Principles of Imperative Computation',
+      year: '2024',
+      description: 'A stack-based language interpreter written in C0.',
+      features: [
+        'Evaluates a queue of tokens against an integer stack',
+        'Arithmetic operators, conditionals, and printing',
+        'User-defined words stored in a dictionary',
+        'Stacks of queues to support nested definitions and control flow',
+        'Wrote Clac programs that run on the interpreter'
+      ],
+      techStack: ['C0', 'Interpreters', 'Stacks', 'Queues'],
+      screenshots: []
+    },
+    'sml-functional': {
+      title: 'Functional Programming in SML',
+      company: 'CMU 15-150 Principles of Functional Programming',
+      year: '2025',
+      description: 'Standard ML assignments covering functional programming, continuations, modules, lazy evaluation, and parallelism.',
+      features: [
+        'Regular expression matcher built with continuation-passing style',
+        'Lazy streams, including a pseudorandom stream generator',
+        'Datatypes, tree algorithms, and polymorphic sorting',
+        'Higher-order functions and exceptions',
+        'Modules and signatures for abstraction',
+        'Parallel sequence functions with work and span analysis',
+        'Written proofs of correctness by induction'
+      ],
+      techStack: ['Standard ML', 'Functional Programming', 'Continuations', 'Modules'],
+      screenshots: []
+    },
+    'parallel-algorithms': {
+      title: 'Parallel Algorithms Labs',
+      company: 'CMU 15-210 Parallel and Sequential Data Structures and Algorithms',
+      year: '2026',
+      description: 'Parallel and sequential algorithm implementations in Standard ML, with work and span analysis.',
+      features: [
+        'Divide-and-conquer algorithms (maximum contiguous subsequence sum, parenthesis distance, skyline) with work and span analysis',
+        'Dynamic programming labs: seam carving, frog bridges, and hashtags',
+        'Breadth-first all-shortest-paths on a graph built from a thesaurus',
+        'Finger search trees built on binary search trees',
+        'Maximum rectangle problem on matrices',
+        'Performance and speedup testing of parallel code with MPL'
+      ],
+      techStack: ['Standard ML', 'Parallel Algorithms', 'Dynamic Programming', 'Graph Algorithms'],
+      screenshots: []
+    },
+    'unix-labs': {
+      title: 'Unix, Shell & Git Labs',
+      company: 'CMU 07-131 Great Practical Ideas in Computer Science',
+      year: '2024',
+      description: 'Hands-on labs covering the Unix command line, shell scripting, Vim, and Git.',
+      features: [
+        'Shell scripting with pipes, redirection, and text-processing tools',
+        'Searching and transforming files from the command line',
+        'Editing efficiently with Vim',
+        'Git: undoing changes and resolving conflicts'
+      ],
+      techStack: ['Bash', 'Unix', 'Vim', 'Git'],
       screenshots: []
     }
   };
