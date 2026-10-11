@@ -23,11 +23,12 @@ const About = () => {
   }, []);
 
   const skills = [
-    { category: 'Languages', items: ['Python', 'C++', 'Java', 'JavaScript', 'TypeScript', 'HTML/CSS'] },
+    { category: 'Languages', items: ['Python', 'C', 'C++', 'Java', 'JavaScript', 'TypeScript', 'OCaml', 'Standard ML', 'x86-64 Assembly', 'HTML/CSS'] },
     { category: 'Frameworks & Tools', items: ['React', 'Node.js', 'Express', 'FastAPI', 'Flask', 'Socket.IO'] },
-    { category: 'AI & ML', items: ['PyTorch', 'OpenAI API', 'scikit-learn', 'Genesis AI', 'Reinforcement Learning'] },
+    { category: 'AI & ML', items: ['PyTorch', 'OpenAI API', 'scikit-learn', 'Genesis AI', 'Reinforcement Learning', 'SVMs'] },
     { category: 'Cloud & Databases', items: ['AWS', 'Amazon Bedrock', 'AWS CDK', 'Microsoft Azure', 'PostgreSQL', 'REST APIs'] },
-    { category: 'Other', items: ['Git', 'Linux', 'ROS2', 'OpenCV', 'OAuth2', 'WebSockets', 'Playwright', 'CI/CD', 'Agile'] }
+    { category: 'Robotics & Autonomy', items: ['ROS2', 'SLAM', 'GTSAM / iSAM2', 'Kalman Filtering', 'Path Planning', 'OpenCV', 'Eigen'] },
+    { category: 'Other', items: ['Git', 'Linux', 'GDB', 'OAuth2', 'WebSockets', 'Playwright', 'CI/CD', 'Agile'] }
   ];
 
   return (
