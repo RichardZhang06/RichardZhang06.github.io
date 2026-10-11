@@ -70,6 +70,21 @@ const DemoPage = () => {
       techStack: ['React', 'Node.js', 'Express', 'Socket.IO', 'OpenAI API', 'WebSockets', 'Speech APIs'],
       screenshots: []
     },
+    'reading-time': {
+      title: 'Reading Time Estimator',
+      year: '2024',
+      description: 'A Chrome extension that learns how fast you read and predicts how long an article will take, using features of the page text and a model trained on your own reading times.',
+      features: [
+        'Chrome extension (Manifest V3) with a popup timer to start, stop, and save how long you take to read a page',
+        'Python Flask backend on AWS EC2 that scrapes each page and extracts features: total word count, average word length, and a Gunning Fog readability score',
+        'Per-user history of saved reading times stored on the server',
+        'Support vector regression (RBF kernel, scikit-learn) trained on each user\'s own times to predict how long a new page will take',
+        'Popup shows the predicted time along with word count, longest word, and difficulty',
+        'Prototype that has not been published to the Chrome Web Store'
+      ],
+      techStack: ['Python', 'scikit-learn', 'JavaScript', 'AWS EC2', 'Flask', 'BeautifulSoup'],
+      screenshots: []
+    },
     'racing-nav': {
       title: 'Autonomous Race Car Navigation',
       company: 'CMU Racing Driverless',

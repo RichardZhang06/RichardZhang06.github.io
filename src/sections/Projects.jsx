@@ -88,12 +88,12 @@ const Projects = () => {
       title: 'Reading Time Estimator',
       category: 'AI/Web',
       description: 'Chrome extension using machine learning to analyze reading patterns and estimate article reading times. Features Python backend API on AWS EC2 with real-time content analysis.',
-      tech: ['Python', 'scikit-learn', 'JavaScript', 'AWS EC2', 'Flask'],
+      tech: ['Python', 'scikit-learn', 'JavaScript', 'AWS EC2', 'Flask', 'BeautifulSoup'],
       year: '2024',
       role: 'Developer',
       color: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
       githubUrl: 'https://github.com/RichardZhang06/Chrome-Extension-1.5.git',
-      demoUrl: null
+      demoUrl: '/demos/reading-time'
     },
     {
       title: 'Autonomous Race Car Navigation',
