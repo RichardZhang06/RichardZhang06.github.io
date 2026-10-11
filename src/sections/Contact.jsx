@@ -45,8 +45,7 @@ const Contact = () => {
   const socialLinks = [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/richard-zhang06/', icon: '💼' },
     { name: 'GitHub', url: 'https://github.com/RichardZhang06', icon: '💻' },
-    { name: 'Email', url: 'mailto:richardzhang217@gmail.com', icon: '✉️' },
-    { name: 'Phone', url: 'tel:571-363-5382', icon: '📞' }
+    { name: 'Email', url: 'mailto:richardzhang217@gmail.com', icon: '✉️' }
   ];
 
   return (
@@ -86,16 +85,6 @@ const Contact = () => {
                   <h3 className="detail-title">Email</h3>
                   <a href="mailto:richardzhang217@gmail.com" className="detail-link">
                     richardzhang217@gmail.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="detail-item">
-                <div className="detail-icon">📱</div>
-                <div className="detail-content">
-                  <h3 className="detail-title">Phone</h3>
-                  <a href="tel:571-363-5382" className="detail-link">
-                    571-363-5382
                   </a>
                 </div>
               </div>
