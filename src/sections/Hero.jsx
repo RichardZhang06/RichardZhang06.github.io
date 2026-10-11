@@ -54,14 +54,6 @@ const Hero = () => {
             <a href="#contact" className="cta-button secondary">
               Get In Touch
             </a>
-            <a
-              href="/Richard_Zhang_Resume_2026-10.pdf"
-              download
-              className="cta-button secondary"
-            >
-              Download Resume
-              <span className="resume-date">Updated Oct 2026</span>
-            </a>
           </div>
         </div>
       </div>

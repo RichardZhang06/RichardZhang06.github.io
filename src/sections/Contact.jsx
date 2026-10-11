@@ -80,7 +80,8 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-
+          </div>
+          <div className={`contact-side ${isVisible ? 'animate' : ''}`}>
             <div className="social-links">
               <h3 className="social-title">Connect With Me</h3>
               <div className="social-grid">
@@ -98,6 +99,18 @@ const Contact = () => {
                 ))}
               </div>
             </div>
+
+            <a
+              href="/Richard_Zhang_Resume_2026-10.pdf"
+              download
+              className="resume-card"
+            >
+              <div className="resume-card-text">
+                <h3 className="resume-card-title">Resume</h3>
+                <p className="resume-card-sub">PDF · Updated Oct 2026</p>
+              </div>
+              <span className="resume-card-arrow">↓</span>
+            </a>
           </div>
         </div>
       </div>
