@@ -67,6 +67,10 @@
   transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
 }
 
+.projects-grid > * {
+  min-width: 0;
+}
+
 .projects-grid.animate {
   opacity: 1;
 }
@@ -139,15 +143,7 @@
 /* Masonry-style layout for larger screens */
 @media (min-width: 1200px) {
   .projects-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .project-card:nth-child(3n + 1) {
-    grid-row: span 1;
-  }
-
-  .project-card:nth-child(3n + 2) {
-    grid-row: span 1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -158,7 +154,7 @@
   }
 
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
   }
 
