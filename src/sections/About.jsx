@@ -23,11 +23,11 @@ const About = () => {
   }, []);
 
   const skills = [
-    { category: 'Languages', items: ['Python', 'C++', 'JavaScript', 'HTML/CSS'] },
+    { category: 'Languages', items: ['Python', 'C++', 'Java', 'JavaScript', 'TypeScript', 'HTML/CSS'] },
     { category: 'Frameworks & Tools', items: ['React', 'Node.js', 'Express', 'FastAPI', 'Flask', 'Socket.IO'] },
     { category: 'AI & ML', items: ['PyTorch', 'OpenAI API', 'scikit-learn', 'Genesis AI', 'Reinforcement Learning'] },
-    { category: 'Cloud & Databases', items: ['Microsoft Azure', 'AWS EC2', 'PostgreSQL', 'REST APIs'] },
-    { category: 'Other', items: ['Git', 'Linux', 'ROS2', 'OpenCV', 'OAuth2', 'WebSockets'] }
+    { category: 'Cloud & Databases', items: ['AWS', 'Amazon Bedrock', 'AWS CDK', 'Microsoft Azure', 'PostgreSQL', 'REST APIs'] },
+    { category: 'Other', items: ['Git', 'Linux', 'ROS2', 'OpenCV', 'OAuth2', 'WebSockets', 'Playwright', 'CI/CD', 'Agile'] }
   ];
 
   return (
@@ -49,8 +49,9 @@ const About = () => {
           <div className={`about-text ${isVisible ? 'animate' : ''}`}>
             <p className="about-paragraph">
               I'm a Computer Science student at Carnegie Mellon University with a concentration in Machine Learning. 
-              Currently working as an AI Software Engineer at Ever Prosperity Properties, where I build intelligent systems 
-              that leverage AI to solve real-world problems in the real estate industry.
+              Most recently, I interned at Amazon Web Services, building an agentic system on Amazon Bedrock AgentCore that cut 
+              enterprise SSO onboarding time by 50%. I also work as an AI Software Engineer at Ever Prosperity Properties, 
+              building intelligent systems for the real estate industry.
             </p>
             <p className="about-paragraph">
               My experience spans from developing physically simulated humanoid characters using reinforcement learning 
@@ -69,7 +70,7 @@ const About = () => {
                 <h3 className="highlight-title">Education</h3>
                 <p className="highlight-text">
                   <strong>Carnegie Mellon University</strong> - B.S. in Computer Science (Machine Learning Concentration)<br />
-                  GPA: 3.67 | Expected Graduation: June 2027
+                  Expected Graduation: May 2027
                 </p>
               </div>
             </div>

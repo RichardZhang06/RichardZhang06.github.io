@@ -162,6 +162,12 @@
   transform: translateY(-2px);
 }
 
+.resume-date {
+  font-size: 0.7rem;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
 .button-arrow {
   transition: transform var(--transition);
 }

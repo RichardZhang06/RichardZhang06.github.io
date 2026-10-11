@@ -26,10 +26,22 @@ const Projects = () => {
 
   const projects = [
     {
+      title: 'Agentic Enterprise SSO Onboarding',
+      category: 'AI/Web',
+      description: 'Built an agentic system on Amazon Bedrock AgentCore that conversationally completes enterprise SSO onboarding for QuickSight across four identity providers (Okta, PingFederate/PingOne, Microsoft Entra ID, Google Workspace), cutting onboarding time by 50%. Also added mobile and web Build Verification Tests to the release pipeline that sign in as a real enterprise identity and exercise chat, auth, and artifact flows on physical devices, shifting regression discovery from post-release to pre-release.',
+      tech: ['Amazon Bedrock AgentCore', 'AWS CDK', 'AWS Device Farm', 'Python', 'TypeScript', 'Linux'],
+      year: '2026',
+      role: 'Software Development Engineer Intern',
+      company: 'Amazon Web Services (AWS)',
+      color: 'linear-gradient(135deg, #f6d365 0%, #fda085 100%)',
+      githubUrl: null,
+      demoUrl: null
+    },
+    {
       title: 'AI-Powered Home Search Platform',
       category: 'AI/Web',
-      description: 'Built an AI-powered home search app enabling listing inquiries, showing scheduling, and price analysis with instant client responses. Deployed on Microsoft Azure with secure OAuth2 authentication.',
-      tech: ['Python', 'OpenAI', 'PostgreSQL', 'Azure', 'FastAPI', 'OAuth2'],
+      description: 'Built an AI-powered home search app enabling listing inquiries, showing scheduling, and price analysis with instant client responses. Deployed on Microsoft Azure (App Service and Azure Database for PostgreSQL) with secure OAuth2 authentication, plus a custom web scraper that preprocesses and stores structured property data.',
+      tech: ['Python', 'OpenAI', 'PostgreSQL', 'Azure', 'FastAPI', 'OAuth2', 'Playwright'],
       year: '2025',
       role: 'AI Software Engineer',
       company: 'Ever Prosperity Properties',
@@ -52,7 +64,7 @@ const Projects = () => {
     {
       title: 'AI Humanoid Character Animation',
       category: 'AI/RL',
-      description: 'Developed physically simulated humanoid characters for video games using reinforcement learning (PPO). Trained agents for stable bipedal walking and recovery from perturbations.',
+      description: 'Developed physically simulated humanoid characters for video games using reinforcement learning (PPO). Trained agents for stable bipedal walking and recovery from perturbations, and migrated simulation environments from Isaac Gym to Genesis for better stability and training scalability.',
       tech: ['Genesis AI', 'PyTorch', 'CUDA', 'NumPy', 'Python'],
       year: '2025',
       role: 'Software Engineer',
@@ -86,7 +98,7 @@ const Projects = () => {
     {
       title: 'Autonomous Race Car Navigation',
       category: 'Robotics',
-      description: 'Leading autonomous navigation development for Formula SAE electric race car. Developed AI-driven raceline generation using SVMs for optimal lap performance.',
+      description: 'Leading autonomous navigation development (mapping, localization, motion planning) for a Formula SAE electric race car on a 110-member team competing at Formula SAE Michigan. Developed AI-driven raceline generation using SVMs for optimal lap performance.',
       tech: ['C++', 'Python', 'ROS2', 'scikit-learn', 'OpenCV', 'Eigen'],
       year: '2024',
       role: 'Path Planning Captain',
