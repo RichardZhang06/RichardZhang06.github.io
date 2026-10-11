@@ -73,17 +73,100 @@ const DemoPage = () => {
     'racing-nav': {
       title: 'Autonomous Race Car Navigation',
       company: 'CMU Racing Driverless',
-      year: '2024',
-      description: 'Autonomous navigation stack for a Formula SAE electric race car, focusing on mapping, localization, and AI-driven raceline generation for optimal lap performance.',
+      year: '2024 - 2026',
+      description: 'Autonomous navigation stack for a Formula SAE electric race car, covering localization, SLAM, track mapping tools, and midline and raceline generation.',
       features: [
-        'SVM-based midline detection for cone track mapping',
-        'AI-driven raceline generation minimizing path curvature',
-        'Real-time localization using ROS2 and sensor fusion',
-        'OpenCV-based perception pipeline for cone detection',
-        'Motion planning and velocity profiling for high-speed turns',
-        'Competed in international Formula SAE Michigan competition'
+        'EKF localizer that fuses vehicle velocity with cone detections against a prior track map',
+        'Factor graph SLAM with iSAM2 for mapping cones online and replaying rosbags offline',
+        'Browser-based custom track editor for cone maps, reference paths, midlines, and racelines',
+        'Minimum-curvature raceline generation and geometric midline generation',
+        'Delaunay triangulation midline and cone recoloring for tracks with unknown cone colors',
+        'SVM-based track boundary and midline detection with several search strategies',
+        'Joint compatibility branch and bound (JCBB) data association shared by the localizer and SLAM'
       ],
-      techStack: ['C++', 'Python', 'ROS2', 'scikit-learn', 'OpenCV', 'Eigen', 'NumPy', 'Linux'],
+      techStack: ['C++', 'Python', 'ROS2', 'GTSAM', 'scikit-learn', 'OpenCV', 'Eigen'],
+      screenshots: []
+    },
+    'ekf-localizer': {
+      title: 'EKF Cone Localizer',
+      company: 'CMU Racing Driverless',
+      year: '2026',
+      description: 'An extended Kalman filter that localizes the car against a prior cone map using range and bearing cone measurements.',
+      features: [
+        'State of x, y, and yaw with covariance, predicted from vehicle velocity and yaw rate',
+        'Motion-noise model that scales with speed and yaw rate, with a floor on yaw noise',
+        'Range and bearing measurement model with its Jacobian, updated sequentially for each matched cone',
+        'Three interchangeable data association methods: greedy nearest-neighbor, ICP, and joint compatibility branch and bound',
+        'Dark mode that matches detections against the full map regardless of cone color',
+        'Reference path publisher with lookahead and a finish latch, in the same node',
+        'Debug topics for the map, detections, and associations in RViz'
+      ],
+      techStack: ['C++', 'ROS2', 'Eigen', 'PCL', 'Kalman Filtering'],
+      screenshots: []
+    },
+    'slam': {
+      title: 'Factor Graph SLAM with iSAM2',
+      company: 'CMU Racing Driverless',
+      year: '2026',
+      description: 'Incremental cone SLAM using a GTSAM factor graph solved with iSAM2, running both live and from rosbag replay.',
+      features: [
+        '2D pose and landmark factor graph with odometry between-factors and bearing-range cone factors',
+        'Incremental smoothing and mapping with iSAM2, with one update per synchronized batch of odometry and observations',
+        'Separate landmark sets per cone class (blue, yellow, orange, big orange, unknown)',
+        'Data association by greedy Mahalanobis gating, ICP, or joint compatibility branch and bound',
+        'Shared SLAM core used by both a live node and an offline rosbag replay node',
+        'Configurable noise models and association gates, plus RViz markers for landmarks, observations, and associations'
+      ],
+      techStack: ['C++', 'GTSAM', 'iSAM2', 'ROS2', 'Factor Graphs'],
+      screenshots: []
+    },
+    'track-editor': {
+      title: 'Custom Track Editor',
+      company: 'CMU Racing Driverless',
+      year: '2026',
+      description: 'A browser-based tool for editing cone maps and generating reference paths, midlines, and racelines.',
+      features: [
+        'Canvas editor for adding, moving, deleting, and recoloring cones, with pan, zoom, and undo',
+        'Parametric reference path editing for skidpad-style tracks',
+        'Midline and raceline overlays generated on demand through a local HTTP API',
+        'Export of cone maps, reference paths, midlines, and racelines as CSVs for the localizer and path follower',
+        'One-command launch that installs the Python raceline dependencies automatically',
+        'Headless command-line raceline generation with plotted output'
+      ],
+      techStack: ['JavaScript', 'Python', 'HTML Canvas', 'HTTP API'],
+      screenshots: []
+    },
+    'raceline': {
+      title: 'Raceline Generation',
+      company: 'CMU Racing Driverless',
+      year: '2026',
+      description: 'A pipeline that turns a cone map into a geometric midline and a minimum-curvature raceline.',
+      features: [
+        'Geometric midline generated from blue and yellow cone boundaries',
+        'Minimum-curvature optimization using the TUM trajectory_planning_helpers library',
+        'Spline smoothing, track closing, and resampling of the loop',
+        'Raceline and optimizer parameters configurable from a YAML file',
+        'Integrated into the track editor and available as a command-line tool',
+        'Test tracks including autocross, figure-eight, and hairpin layouts'
+      ],
+      techStack: ['Python', 'NumPy', 'SciPy', 'Optimization', 'Splines'],
+      screenshots: []
+    },
+    'delaunay-midline': {
+      title: 'Delaunay Triangulation Midline',
+      company: 'CMU Racing Driverless',
+      year: '2026',
+      description: 'A midline and cone recoloring algorithm based on Delaunay triangulation of the visible cones.',
+      features: [
+        'Delaunay triangulation of detected cones in the vehicle frame',
+        'Candidate cross-track edges scored by length against track width, heading alignment, and side consistency',
+        'Greedy selection of up to several cross edges per frame, with endpoints classified as left or right boundary',
+        'Midline built from edge midpoints and resampled at a fixed spacing',
+        'Staged fallbacks that relax angle and width tolerances when too few edges qualify',
+        'Python prototyping and benchmark harness comparing recolor methods, including a beam-search boundary chain tracker',
+        'RViz debug markers for the triangulation, candidate edges, and selected edges'
+      ],
+      techStack: ['C++', 'Python', 'ROS2', 'Delaunay Triangulation', 'SciPy'],
       screenshots: []
     },
     'compiler': {
