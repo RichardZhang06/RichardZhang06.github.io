@@ -10,7 +10,6 @@ const DemoPage = () => {
       company: 'Ever Prosperity Properties',
       year: '2025',
       description: 'An AI-powered home search app enabling natural language listing inquiries, automated showing scheduling, and real-time price analysis with instant client responses.',
-      videoUrl: null, // Replace with: 'https://www.youtube.com/embed/YOUR_ID'
       features: [
         'Natural language property search powered by OpenAI',
         'AI-driven price analysis and market comparisons',
@@ -27,7 +26,6 @@ const DemoPage = () => {
       company: 'Build18 – CMU Hardware Hackathon',
       year: '2025',
       description: 'A hybrid hardware-software system that transforms digital beat compositions into real-time physical guitar performances using solenoids, servos, and a custom step-sequencer UI.',
-      videoUrl: null,
       features: [
         'React + FastAPI step-sequencer UI with timestamped note events',
         'Real-time scheduling with <10ms latency on Teensy 4.1',
@@ -45,7 +43,6 @@ const DemoPage = () => {
       company: 'Lightspeed LA',
       year: '2025',
       description: 'Physically simulated humanoid characters for next-generation video games, trained via reinforcement learning to perform stable bipedal locomotion and dynamic recovery.',
-      videoUrl: null,
       features: [
         'PPO-based reinforcement learning agent training',
         'Stable bipedal walking across varied terrain',
@@ -62,7 +59,6 @@ const DemoPage = () => {
       company: 'Hackathon Project',
       year: '2024',
       description: 'A real-time web application that helps users improve public speaking by providing AI-powered live feedback on speech clarity, pacing, and filler word usage.',
-      videoUrl: null,
       features: [
         'Real-time speech analysis via browser Speech APIs',
         'Filler word detection and frequency tracking',
@@ -79,7 +75,6 @@ const DemoPage = () => {
       company: 'CMU Racing Driverless',
       year: '2024',
       description: 'Autonomous navigation stack for a Formula SAE electric race car, focusing on mapping, localization, and AI-driven raceline generation for optimal lap performance.',
-      videoUrl: null,
       features: [
         'SVM-based midline detection for cone track mapping',
         'AI-driven raceline generation minimizing path curvature',
@@ -96,7 +91,6 @@ const DemoPage = () => {
       company: 'CMU 15-411 Compiler Design',
       year: '2025',
       description: 'A full optimizing compiler written in OCaml targeting x86-64 assembly, built from scratch for the 15-411 Compiler Design course.',
-      videoUrl: null,
       features: [
         'Full frontend: lexing, parsing, and type checking',
         'SSA (Static Single Assignment) form transformation',
@@ -113,7 +107,6 @@ const DemoPage = () => {
       company: 'CMU 15-213 Introduction to Computer Systems',
       year: '2024',
       description: 'A high-performance dynamic memory allocator in C implementing malloc, free, realloc, and calloc using an explicit free list with 16-byte alignment.',
-      videoUrl: null,
       features: [
         'Explicit free list with LIFO insertion policy',
         '16-byte aligned block headers and footers',
@@ -130,7 +123,6 @@ const DemoPage = () => {
       company: 'CMU 15-213 Introduction to Computer Systems',
       year: '2024',
       description: 'A concurrent HTTP/1.0 proxy server in C supporting multiple simultaneous clients via POSIX threads, with an LRU cache for repeated requests.',
-      videoUrl: null,
       features: [
         'Thread-based concurrency supporting simultaneous client connections',
         'Robust I/O with partial read/write handling',
@@ -147,7 +139,6 @@ const DemoPage = () => {
       company: 'CMU 15-213 Introduction to Computer Systems',
       year: '2024',
       description: 'A Unix-like file system implemented in C, supporting inodes, directory structures, block allocation, and full pathname resolution.',
-      videoUrl: null,
       features: [
         'Inode-based file metadata and data block management',
         'Hierarchical directory structures with linked entries',
@@ -164,7 +155,6 @@ const DemoPage = () => {
       company: 'CMU 15-213 Introduction to Computer Systems',
       year: '2024',
       description: 'A functional Unix shell in C with job control, signal handling, and support for both foreground and background process management.',
-      videoUrl: null,
       features: [
         'Foreground and background process execution',
         'Job control: jobs, bg, fg, and kill built-ins',
@@ -181,7 +171,6 @@ const DemoPage = () => {
       company: 'CMU 15-213 Introduction to Computer Systems',
       year: '2024',
       description: 'A two-part lab: a set-associative cache simulator with LRU replacement, and hand-optimized matrix transpose implementations to minimize cache misses.',
-      videoUrl: null,
       features: [
         'Set-associative cache simulator with configurable s, E, b parameters',
         'LRU replacement policy with full hit/miss/eviction tracking',
@@ -203,8 +192,8 @@ const DemoPage = () => {
         <div className="demo-container">
           <div className="demo-not-found">
             <div className="not-found-code">404</div>
-            <h1 className="not-found-title">Demo Not Found</h1>
-            <p className="not-found-text">This demo page doesn't exist yet.</p>
+            <h1 className="not-found-title">Page Not Found</h1>
+            <p className="not-found-text">This project page doesn't exist yet.</p>
             <Link to="/" className="back-button">← Back to Portfolio</Link>
           </div>
         </div>
@@ -229,30 +218,6 @@ const DemoPage = () => {
           <h1 className="demo-title">{demo.title}</h1>
           <p className="demo-description">{demo.description}</p>
         </header>
-
-        {demo.videoUrl ? (
-          <div className="demo-video-wrapper">
-            <div className="demo-video-label">
-              <span className="label-line"></span>
-              <span>DEMO VIDEO</span>
-            </div>
-            <div className="demo-video">
-              <iframe
-                src={demo.videoUrl}
-                title={demo.title}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          </div>
-        ) : (
-          <div className="demo-coming-soon">
-            <div className="coming-soon-icon">🎬</div>
-            <h3 className="coming-soon-title">Video Demo Coming Soon</h3>
-            <p className="coming-soon-text">A walkthrough video is being prepared for this project.</p>
-          </div>
-        )}
 
         <div className="demo-sections">
           <section className="demo-section">

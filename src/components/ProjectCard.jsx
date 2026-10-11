@@ -15,7 +15,7 @@ const ProjectCard = ({ project, index }) => {
                 href={project.demoUrl} 
                 className="overlay-link"
               >
-                View Demo →
+                More Info →
               </a>
             )}
             {project.githubUrl && (
