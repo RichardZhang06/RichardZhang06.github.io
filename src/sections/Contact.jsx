@@ -2,11 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import './Contact.css';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -26,21 +21,6 @@ const Contact = () => {
 
     return () => observer.disconnect();
   }, []);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add your form submission logic here
-    alert('Thank you for your message! I\'ll get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
-  };
 
   const socialLinks = [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/richard-zhang06/', icon: '💼' },
@@ -108,58 +88,6 @@ const Contact = () => {
               </div>
             </div>
           </div>
-
-          <form 
-            onSubmit={handleSubmit} 
-            className={`contact-form ${isVisible ? 'animate' : ''}`}
-          >
-            <div className="form-group">
-              <label htmlFor="name" className="form-label">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="form-input"
-                placeholder="John Doe"
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="email" className="form-label">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="form-input"
-                placeholder="john@example.com"
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="message" className="form-label">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                className="form-textarea"
-                placeholder="Tell me about your project..."
-                rows="6"
-              />
-            </div>
-
-            <button type="submit" className="form-submit">
-              Send Message
-              <span className="submit-arrow">→</span>
-            </button>
-          </form>
         </div>
       </div>
 
